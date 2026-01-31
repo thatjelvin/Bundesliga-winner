@@ -331,6 +331,18 @@ class SeasonWinnerPredictor:
 
 def main():
     """Main function to predict season winner"""
+    import sys
+    
+    # Parse command line arguments
+    n_simulations = 10  # Default for quick testing
+    if len(sys.argv) > 1:
+        try:
+            n_simulations = int(sys.argv[1])
+        except ValueError:
+            print("Usage: python predict_season_winner.py [n_simulations]")
+            print("Example: python predict_season_winner.py 100")
+            return
+    
     print("\n" + "╔" + "=" * 68 + "╗")
     print("║" + " " * 15 + "BUNDESLIGA 2025-26 SEASON WINNER PREDICTION" + " " * 10 + "║")
     print("╚" + "=" * 68 + "╝\n")
@@ -364,11 +376,19 @@ def main():
     season_predictor = SeasonWinnerPredictor(predictor, fe)
     
     # Simulate season
-    results = season_predictor.simulate_season(n_simulations=10, season="2025")
+    if n_simulations < 100:
+        print(f"⚠️  Running {n_simulations} simulations (use more for accurate probabilities)")
+        print(f"   Example: python predict_season_winner.py 100\n")
+    
+    results = season_predictor.simulate_season(n_simulations=n_simulations, season="2025")
     
     print("\nPrediction complete! 🎉")
     print("\nNote: Predictions are based on historical data and current form.")
     print("Actual results may vary due to injuries, transfers, and other factors.")
+    
+    if n_simulations < 100:
+        print(f"\n⚠️  Recommendation: Run with at least 100 simulations for better accuracy:")
+        print(f"   python predict_season_winner.py 100")
 
 
 if __name__ == '__main__':

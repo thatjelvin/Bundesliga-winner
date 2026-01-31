@@ -104,7 +104,14 @@ A new script `predict_season_winner.py` has been added that:
 
 ### Usage:
 ```bash
+# Quick prediction (10 simulations, fast)
 python ml_backend/predict_season_winner.py
+
+# More accurate prediction (100+ simulations, slower)
+python ml_backend/predict_season_winner.py 100
+
+# High accuracy (1000 simulations, takes longer)
+python ml_backend/predict_season_winner.py 1000
 ```
 
 ### Example Output:

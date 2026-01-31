@@ -328,10 +328,6 @@ class FeatureEngineer:
                 match['date']
             )
             
-            # Add match metadata
-            features['season'] = match['season']
-            features['matchday'] = match['matchday']
-            
             features_list.append(features)
             
             # Target: 0 = Away Win, 1 = Draw, 2 = Home Win

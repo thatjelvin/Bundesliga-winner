@@ -63,7 +63,7 @@ Fellow football nerds and ML enthusiasts are welcome! If you have ideas to impro
 
 ## 📝 License
 
-[Add your license here]
+[LICENSE]
 
 ## ⚽ Final Thoughts
 
